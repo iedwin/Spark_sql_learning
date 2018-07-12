@@ -1,5 +1,6 @@
 package com.boy.spark
 
+import com.tool.LogConf
 import org.apache.spark.sql.hive.HiveContext
 import org.apache.spark.{SparkConf, SparkContext}
 
@@ -10,7 +11,7 @@ import org.apache.spark.{SparkConf, SparkContext}
 object HiveContextApp {
 
   def main(args: Array[String]): Unit = {
-
+    LogConf.setStreamingLogLevels
     //1) 创建相应的Context
     val sparkConf = new SparkConf()
     //在测试或者生产中，AppBName和Master我们是通过脚本进行指定

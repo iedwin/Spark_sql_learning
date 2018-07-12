@@ -1,5 +1,6 @@
 package com.boy.spark
 
+import com.tool.LogConf
 import org.apache.spark.sql.SparkSession
 
 /**
@@ -8,6 +9,8 @@ import org.apache.spark.sql.SparkSession
 object DatasetApp {
 
   def main(args: Array[String]): Unit = {
+
+    LogConf.setStreamingLogLevels
 
     val spark = SparkSession.builder().appName("DatasetApp").master("local[2]").getOrCreate()
 

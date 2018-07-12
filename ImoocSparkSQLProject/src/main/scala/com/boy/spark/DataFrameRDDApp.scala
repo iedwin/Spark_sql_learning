@@ -1,5 +1,6 @@
 package com.boy.spark
 
+import com.tool.LogConf
 import org.apache.spark.sql.types.{IntegerType, StringType, StructField, StructType}
 import org.apache.spark.sql.{Row, SparkSession}
 
@@ -13,6 +14,7 @@ object DataFrameRDDApp {
 
 
   def main(args: Array[String]): Unit = {
+    LogConf.setStreamingLogLevels
 
     val spark = SparkSession.builder().appName("DataFrameRDDApp").master("local[2]").getOrCreate()
 
