@@ -1,5 +1,6 @@
 package com.boy.spark
 
+import com.tool.LogConf
 import org.apache.spark.sql.SparkSession
 
 /**
@@ -7,6 +8,7 @@ import org.apache.spark.sql.SparkSession
   */
 object SparkSessionApp {
   def main(args: Array[String]): Unit = {
+    LogConf.setStreamingLogLevels
     val spark = SparkSession.builder().appName("SparkSessionApp").master("local[2]").getOrCreate()
     val people = spark.read.json("src/main/data/people.json")
     people.show()
