@@ -51,7 +51,7 @@ object DataFrameCase {
     val studentDS2 = rdd.map(_.split("\\|")).map(line => Student(line(0).toInt, line(1), line(2), line(3))).toDF()
     studentDS.join(studentDS2, studentDS.col("id") === studentDS2.col("id")).show()
 
-    studentDS.join(studentDS2, studentDS.col("id") === studentDS2.col("id"), "left_outer").select(studentDS("name")).show()
+    studentDS.join(studentDS2, studentDS.col("id") === studentDS2.col("id"), "left").select(studentDS("name")).show()
 
     spark.stop()
   }
